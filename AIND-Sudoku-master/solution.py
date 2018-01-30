@@ -54,7 +54,6 @@ def naked_twins(values):
                                 if (eliminateUnit != innerUnit and eliminateUnit != box):
                                     values[eliminateUnit] =  values[eliminateUnit].replace(values[innerUnit][0], '')
                                     values[eliminateUnit] =  values[eliminateUnit].replace(values[innerUnit][1], '')
-
     return values
 
 
@@ -75,11 +74,13 @@ def eliminate(values):
         The values dictionary with the assigned values eliminated from peers
     """
     # TODO: Copy your code from the classroom to complete this function
+   
+    
     for box in boxes:
         if len(values[box]) == 1:
             for peer in peers[box]:
-                if(len(values[peer]) != 1):
-                    values[peer] =  values[peer].replace(values[box],'')
+                values[peer] =  values[peer].replace(values[box],'')
+
     return values
 
 def only_choice(values):
@@ -103,6 +104,8 @@ def only_choice(values):
     You should be able to complete this function by copying your code from the classroom
     """
     # TODO: Copy your code from the classroom to complete this function
+    
+    """The following code is to narrow down the boxes in a row / column, square"""
     for box in boxes:
         if len(values[box]) != 1:
             for x in values[box]:
@@ -114,7 +117,7 @@ def only_choice(values):
                             notFound = True
                 if(notFound == False):
                     values[box] = x
-                    
+      
     return values
 
 
